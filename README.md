@@ -6,16 +6,16 @@ An advanced flutter example project.
 2. [Install](#install)  
 3. [Examples](#examples)
    * [Filtering list](#filtering-list)
-   * [Reading json file](#reading json file)
+   * [Reading json file](#reading-json-file)
    * [Managing favorites in shared preferences](#managing-favorites-in-shared-preferences)
    * [Admob integration](#admob-integration)
    * [NoSQL integration](#Nosql-integration)
    * [Global Loading Animation](#global-loading-animation)
-   * []
-   * []
-4. [Changelog](#changelog)
-5. [Support](#support)
-6. [Copyright and license](#copyright-and-license)
+   
+4. [Example App](#example-app)
+5. [Changelog](#changelog)
+6. [Support](#support)
+7. [Copyright and license](#copyright-and-license)
 
 ## Why 
 There are many example projects for flutter, but as soon as I digged deeper in developing flutter projects,
@@ -52,11 +52,22 @@ View [Example3.dart](lib/examples/managingFavoritesInSharedPreferences/Example3.
 
 View [Example4.dart](lib/examples/admobIntegration/Example4.dart)
 
+### NoSQL Integration
+
+
+### Global Loading Animation
+
+## Example App
+You can easily see these examples in real life by installing the correponding app.
+
+Android : Flutter Advanced Examples(https://play.google.com/store/apps/details?id=de.feuerberg_software.flutteradvancedexamples)
+
 ## Changelog
 For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
 
 ## Support
-You like this repository or even use it in one of your projects? Feel free to donate a cup of coffee! 
+You like this repository or even use it in one of your projects? Feel free to donate a cup of 
+coffee! 
 Flattr : https://flattr.com/@Ephenodrom
 
 ## Copyright and license
