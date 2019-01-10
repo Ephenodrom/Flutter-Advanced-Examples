@@ -11,10 +11,9 @@ An advanced flutter example project.
    * [Admob integration](#admob-integration)
    * [NoSQL integration](#Nosql-integration)
    * [Global Loading Animation](#global-loading-animation)
-4. [Example App](#example-app)
-5. [Changelog](#changelog)
-6. [Support](#support)
-7. [Copyright and license](#copyright-and-license)
+4. [Changelog](#changelog)
+5. [Support](#support)
+6. [Copyright and license](#copyright-and-license)
 
 ## Why 
 There are many example projects for flutter, but as soon as I digged deeper in developing flutter projects,
@@ -55,11 +54,6 @@ View [Example4.dart](lib/examples/admobIntegration/Example4.dart)
 
 
 ### Global Loading Animation
-
-## Example App
-You can easily see these examples in real life by installing the correponding app.
-
-Android : [Flutter Advanced Examples](https://play.google.com/store/apps/details?id=de.feuerberg_software.flutteradvancedexamples)
 
 ## Changelog
 For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
