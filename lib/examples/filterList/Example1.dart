@@ -37,8 +37,11 @@ List<Car> initialList = Car.cars;
           margin: EdgeInsets.only(top: 10),
           child: Column(children: [
             Text("Search for your car",style: Theme.of(context).textTheme.headline,),
-            TextField(
-              controller: controller
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextField(
+                controller: controller
+              ),
             ),
             SwitchListTile(
               title: Text('Selfdriving'),
@@ -58,13 +61,43 @@ List<Car> initialList = Car.cars;
               },
               value: maxPrice,
             ),
+            ListTile(
+              leading: Text("Engine Type"),
+              trailing: DropdownButton(
+                elevation: 16,
+                onChanged: (item){
+                  setState(() {
+                    carType = item;
+                  });
+                },
+                hint:Text(carType),
+                items: [
+                  DropdownMenuItem<String>(
+                      child: new Text("All"),
+                      value: "All"
+                  ),
+                  DropdownMenuItem<String>(
+                      child: new Text("Gas"),
+                      value: "Gas"
+                  ),
+                  DropdownMenuItem<String>(
+                      child: new Text("Diesel"),
+                      value: "Diesel"
+                  ),
+                  DropdownMenuItem<String>(
+                      child: new Text("Electric"),
+                      value: "Electric"
+                  )
+                ],
+              )
+            ),
             Expanded(
               child: ListView.builder(
                   itemCount: currentList.length,
                   itemBuilder: (BuildContext context, int index) {
                     Car current = currentList.elementAt(index);
-
                     return Card(
+                      elevation: 4,
                       child: ListTile(
                         title: Text(current.name),
                         subtitle: Text(current.brand),
@@ -72,39 +105,45 @@ List<Car> initialList = Car.cars;
                         leading: Text(current.year),
                       ),
                     );
-
                   }),
             ),
           ]),
         ));
   }
 
-
   onChange() {
     setState((){});
   }
 
   filterCars() {
-    String name = controller.text;
+    // Prepare lists
+    List<Car> tmp = [];
     currentList.clear();
+
+    String name = controller.text;
     print("filter cars for name " + name);
     if (name.isEmpty) {
-      currentList.addAll(initialList);
+      tmp.addAll(initialList);
     } else {
       for (Car c in initialList) {
         if (c.name.toLowerCase().startsWith(name.toLowerCase())) {
-          currentList.add(c);
+          tmp.add(c);
         }
       }
     }
-    print("filter cars for selfdriving " + selfdriving.toString());
-    List<Car> tmp = [];
-    for (Car c in currentList) {
-      if(c.selfDriving == selfdriving){
-        tmp.add(c);
-      }
-    }
     currentList = tmp;
+
+    if(selfdriving) {
+      tmp = [];
+      print("filter cars for selfdriving " + selfdriving.toString());
+      for (Car c in currentList) {
+        if (c.selfDriving == selfdriving) {
+          tmp.add(c);
+        }
+      }
+      currentList = tmp;
+    }
+
     print("filter cars for max price " + maxPrice.toString());
     tmp = [];
     for (Car c in currentList) {
@@ -113,5 +152,15 @@ List<Car> initialList = Car.cars;
       }
     }
     currentList = tmp;
+    if(carType.toLowerCase() != "all") {
+      tmp = [];
+      print("filter cars for type " + carType);
+      for (Car c in currentList) {
+        if (c.type == carType.toLowerCase()) {
+          tmp.add(c);
+        }
+      }
+      currentList = tmp;
+    }
   }
 }
