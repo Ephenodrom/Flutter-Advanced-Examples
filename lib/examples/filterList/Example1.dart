@@ -16,6 +16,7 @@ List<Car> initialList = Car.cars;
   //filter
   bool selfdriving = false;
   double maxPrice = 100000;
+  String carType = "all";
 
   final controller = new TextEditingController();
 
