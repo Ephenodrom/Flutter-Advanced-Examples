@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Example1 extends StatefulWidget {
   Example1();
 
-  final String title = "Example1";
+  final String title = "Filtering List";
 
   @override
   _Example1State createState() => _Example1State();

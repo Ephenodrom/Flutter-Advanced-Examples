@@ -1,3 +1,4 @@
+import 'package:advanced_flutter_example/Loading.dart';
 import 'package:advanced_flutter_example/examples/admobIntegration/Example4.dart';
 import 'package:advanced_flutter_example/examples/filterList/Example1.dart';
 import 'package:advanced_flutter_example/examples/managingFavoritesInSharedPreferences/Example3.dart';
@@ -28,7 +29,18 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  BannerAd _bannerAd;
+
+  bool isloaded = false;
+
+  MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    keywords: <String>['flutterio', 'beautiful apps'],
+    contentUrl: 'https://flutter.io',
+    birthday: DateTime.now(),
+    childDirected: false,
+    designedForFamilies: false,
+    gender: MobileAdGender.male, // or MobileAdGender.female, MobileAdGender.unknown
+    testDevices: <String>[], // Android emulators are considered test devices
+  );
 
   HomeState() {
     FirebaseAdMob.instance
@@ -37,6 +49,9 @@ class HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    if(!isloaded){
+      return Loading();
+    }
     //loadAd();
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +64,6 @@ class HomeState extends State<Home> {
             title: new Text("Filtering List"),
             subtitle: new Text("Apply different filters on a list of cars."),
             onTap: () {
-              disposeAd();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Example1()),
@@ -58,11 +72,10 @@ class HomeState extends State<Home> {
             trailing: Icon(Icons.arrow_right),
           ),
           ListTile(
-            title: new Text("Json"),
+            title: new Text("Reading Json files"),
             subtitle: new Text(
                 "Loading data from a json file inside the asset folder."),
             onTap: () {
-              disposeAd();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Example2()),
@@ -75,7 +88,6 @@ class HomeState extends State<Home> {
             subtitle: new Text(
                 "Mark your favorite meal and save it in the shared preferences."),
             onTap: () {
-              disposeAd();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Example3()),
@@ -87,7 +99,6 @@ class HomeState extends State<Home> {
             title: new Text("Admob Integration"),
             subtitle: new Text("Integrate Admob in your application."),
             onTap: () {
-              disposeAd();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Example4()),
@@ -102,37 +113,30 @@ class HomeState extends State<Home> {
 
   @override
   void dispose() {
-    disposeAd();
     super.dispose();
   }
 
-  void disposeAd() {
-    _bannerAd?.dispose();
-    _bannerAd = null;
-  }
 
   void loadAd() {
-    if (_bannerAd == null) {
-      _bannerAd = BannerAd(adUnitId: BannerAd.testAdUnitId, size: AdSize.banner)
-        ..load()
-        ..show(
-          // Banner Position
-          anchorType: AnchorType.bottom,
-        );
-    } else {
-      //_bannerAd.show(anchorType: AnchorType.bottom);
-    }
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    loadAd();
+    RewardedVideoAd.instance.load(adUnitId: RewardedVideoAd.testAdUnitId, targetingInfo: targetingInfo);
   }
 
   @override
   void initState() {
     super.initState();
     loadAd();
+    RewardedVideoAd.instance.listener = listener;
+  }
+
+  void listener(RewardedVideoAdEvent event, {int rewardAmount, String rewardType}){
+    if (event == RewardedVideoAdEvent.rewarded) {
+
+    }else if (event == RewardedVideoAdEvent.loaded) {
+      setState(() {
+        isloaded = true;
+        RewardedVideoAd.instance.show();
+      });
+
+    }
   }
 }

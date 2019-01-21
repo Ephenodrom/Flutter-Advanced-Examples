@@ -6,7 +6,7 @@ import 'dart:convert';
 class Example2 extends StatefulWidget {
   Example2();
 
-  final String title = "Example2";
+  final String title = "Reading Json files";
 
   @override
   _Example2State createState() => _Example2State();

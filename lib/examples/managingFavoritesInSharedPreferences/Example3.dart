@@ -6,7 +6,7 @@ class Example3 extends StatefulWidget {
    setUp();
   }
 
-  final String title = "Example3";
+  final String title = "Managing Favorites";
   final List<String> meals = new List();
   final List<String> favs = new List();
 
@@ -32,7 +32,9 @@ class _Example3State extends State<Example3> {
     super.initState();
     if(widget.favs.isEmpty){
       SharedPreferences.getInstance().then((prefs){
-        widget.favs.addAll(prefs.getStringList("favs"));
+        if(prefs.getStringList("favs") != null) {
+          widget.favs.addAll(prefs.getStringList("favs"));
+        }
         setState((){});
       });
     }
