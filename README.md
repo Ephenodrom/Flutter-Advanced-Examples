@@ -11,6 +11,7 @@ An advanced flutter example project.
    * [Admob integration](#admob-integration)
    * [NoSQL integration](#Nosql-integration)
    * [Global Loading Animation](#global-loading-animation)
+   * [Updating ui within a modal or bottom sheet](#updating-ui-within-a-modal-or-bottom-sheet)
 4. [Changelog](#changelog)
 5. [Support](#support)
 6. [Copyright and license](#copyright-and-license)
@@ -21,8 +22,6 @@ I realised, these examples have the following problems :
 * Too simple
 * Not practical in real life
 * Just scratching the surface of flutter
-
-This project is here to fix that!
 
 ## Install
 You can find the corresponding app for this examples in the [play store](https://play.google.com/store/apps/details?id=com.feuerberg_software.advancedflutterexample).
@@ -35,7 +34,7 @@ Sorting a list of objects by different filters. The example contains a list of c
 View [Example1.dart](lib/examples/filterList/Example1.dart)
 
 ### Reading json file 
-Reading a json file from the asset folder
+Reading a json file from the asset folder and displaying it's content in the ui.
 
 View [Example2.dart](lib/examples/readingJsonFile/Example2.dart)
 
@@ -51,9 +50,13 @@ View [Example3.dart](lib/examples/managingFavoritesInSharedPreferences/Example3.
 View [Example4.dart](lib/examples/admobIntegration/Example4.dart)
 
 ### NoSQL Integration
-
+Coming soon ...
 
 ### Global Loading Animation
+Coming soon ...
+
+### Updating ui within a modal or bottom sheet
+Coming soon ...
 
 ## Changelog
 For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file

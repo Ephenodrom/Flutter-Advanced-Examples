@@ -1,0 +1,40 @@
+{
+  "data" : [
+    {
+      "name": "Sun",
+      "distance": "0"
+    },
+    {
+      "name": "Mercury",
+      "distance": "57.9"
+    },
+    {
+      "name": "Venus",
+      "distance": "108.2"
+    },
+    {
+      "name": "Earth",
+      "distance": "149.6"
+    },
+    {
+      "name": "Mars",
+      "distance": "227.9"
+    },
+    {
+      "name": "Jupiter",
+      "distance": "778.6"
+    },
+    {
+      "name": "Saturn",
+      "distance": "1433.5"
+    },
+    {
+      "name": "Uranus",
+      "distance": "2872.5"
+    },
+    {
+      "name": "Neptune",
+      "distance": "4495.1"
+    }
+  ]
+}
