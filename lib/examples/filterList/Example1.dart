@@ -1,3 +1,4 @@
+import 'package:advanced_flutter_example/examples/filterList/Car.dart';
 import 'package:flutter/material.dart';
 
 class Example1 extends StatefulWidget {
@@ -10,11 +11,11 @@ class Example1 extends StatefulWidget {
 }
 
 class _Example1State extends State<Example1> {
-List<Car> initialList = Car.cars;
+  List<Car> initialList = Car.cars;
   List<Car> currentList = [];
 
   //filter
-  bool selfdriving = false;
+  bool selfDriving = false;
   double maxPrice = 100000;
   String carType = "all";
 
@@ -46,9 +47,9 @@ List<Car> initialList = Car.cars;
             ),
             SwitchListTile(
               title: Text('Selfdriving'),
-              value: selfdriving,
+              value: selfDriving,
               onChanged: (changed){
-                setState(() => selfdriving = changed);
+                setState(() => selfDriving = changed);
               }
             ),
             Slider(
@@ -134,11 +135,11 @@ List<Car> initialList = Car.cars;
     }
     currentList = tmp;
 
-    if(selfdriving) {
+    if(selfDriving) {
       tmp = [];
-      print("filter cars for selfdriving " + selfdriving.toString());
+      print("filter cars for selfdriving " + selfDriving.toString());
       for (Car c in currentList) {
-        if (c.selfDriving == selfdriving) {
+        if (c.selfDriving == selfDriving) {
           tmp.add(c);
         }
       }

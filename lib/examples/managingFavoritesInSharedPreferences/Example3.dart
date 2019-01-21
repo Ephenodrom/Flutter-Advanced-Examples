@@ -35,7 +35,6 @@ class _Example3State extends State<Example3> {
         widget.favs.addAll(prefs.getStringList("favs"));
         setState((){});
       });
-
     }
   }
 
@@ -78,6 +77,5 @@ class _Example3State extends State<Example3> {
     }
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setStringList("favs", widget.favs);
-
   }
 }
