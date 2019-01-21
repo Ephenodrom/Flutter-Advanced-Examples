@@ -1,7 +1,7 @@
 import 'package:advanced_flutter_example/Loading.dart';
-import 'package:advanced_flutter_example/examples/admobIntegration/Example4.dart';
 import 'package:advanced_flutter_example/examples/filterList/Example1.dart';
 import 'package:advanced_flutter_example/examples/managingFavoritesInSharedPreferences/Example3.dart';
+import 'package:advanced_flutter_example/examples/managingInputsWithinModalBottomsheet/Example4.dart';
 import 'package:advanced_flutter_example/examples/readingJsonFile/Example2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_admob/firebase_admob.dart';
@@ -9,7 +9,7 @@ import 'package:firebase_admob/firebase_admob.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,13 +33,13 @@ class HomeState extends State<Home> {
   bool isloaded = false;
 
   MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-    keywords: <String>['flutterio', 'beautiful apps'],
-    contentUrl: 'https://flutter.io',
+    keywords: <String>['flutter', 'advanced', 'example'],
+    contentUrl: 'https://github.com/Ephenodrom/FlutterAdvancedExamples',
     birthday: DateTime.now(),
     childDirected: false,
     designedForFamilies: false,
-    gender: MobileAdGender.male, // or MobileAdGender.female, MobileAdGender.unknown
-    testDevices: <String>[], // Android emulators are considered test devices
+    gender: MobileAdGender.unknown,
+    testDevices: <String>[],
   );
 
   HomeState() {
@@ -96,8 +96,8 @@ class HomeState extends State<Home> {
             trailing: Icon(Icons.arrow_right),
           ),
           ListTile(
-            title: new Text("Admob Integration"),
-            subtitle: new Text("Integrate Admob in your application."),
+            title: new Text("Managing inputs within modal / bottom sheet"),
+            subtitle: new Text("Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet."),
             onTap: () {
               Navigator.push(
                 context,
@@ -137,6 +137,10 @@ class HomeState extends State<Home> {
         RewardedVideoAd.instance.show();
       });
 
+    }else if(event == RewardedVideoAdEvent.failedToLoad){
+      setState(() {
+        isloaded = true;
+      });
     }
   }
 }

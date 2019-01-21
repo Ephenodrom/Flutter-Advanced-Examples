@@ -23,6 +23,7 @@ dependencies:
   shared_preferences: ^0.4.3
   firebase_admob: 0.6.1
   json_serializable: ^2.0.1
+  url_launcher: ^4.0.3
 
 dev_dependencies:
   flutter_test:

@@ -8,10 +8,10 @@ An advanced flutter example project.
    * [Filtering list](#filtering-list)
    * [Reading json file](#reading-json-file)
    * [Managing favorites in shared preferences](#managing-favorites-in-shared-preferences)
-   * [Admob integration](#admob-integration)
+   * [Managing inputs within a modal or bottom sheet](#managing-inputs-within-a-modal-or-bottom-sheet)
    * [NoSQL integration](#Nosql-integration)
    * [Global Loading Animation](#global-loading-animation)
-   * [Updating ui within a modal or bottom sheet](#updating-ui-within-a-modal-or-bottom-sheet)
+   * [Admob integration](#admob-integration)
 4. [Changelog](#changelog)
 5. [Support](#support)
 6. [Copyright and license](#copyright-and-license)
@@ -44,10 +44,10 @@ Each meal can be marked as favorite.
 
 View [Example3.dart](lib/examples/managingFavoritesInSharedPreferences/Example3.dart)
 
-### Admob Integration
+### Managing inputs within a modal or bottom sheet
+Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet.
 
-
-View [Example4.dart](lib/examples/admobIntegration/Example4.dart)
+View [Example4.dart](lib/examples/managingInputsWithinModalBottomsheet/Example4.dart)
 
 ### NoSQL Integration
 Coming soon ...
@@ -55,7 +55,7 @@ Coming soon ...
 ### Global Loading Animation
 Coming soon ...
 
-### Updating ui within a modal or bottom sheet
+### Admob Integration
 Coming soon ...
 
 ## Changelog
