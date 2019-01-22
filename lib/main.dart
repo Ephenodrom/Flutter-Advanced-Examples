@@ -1,11 +1,13 @@
+import 'package:advanced_flutter_example/ExampleList.dart';
 import 'package:advanced_flutter_example/Loading.dart';
-import 'package:advanced_flutter_example/examples/filterList/Example1.dart';
-import 'package:advanced_flutter_example/examples/managingFavoritesInSharedPreferences/Example3.dart';
-import 'package:advanced_flutter_example/examples/managingInputsWithinModalBottomsheet/Example4.dart';
-import 'package:advanced_flutter_example/examples/readingJsonFile/Example2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:global_configuration/global_configuration.dart';
+
+void main() async {
+  await GlobalConfiguration().loadFromAsset("app_settings");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Advanced Example',
-      home: Home(title: 'Flutter Advanced Example'),
+      home: Home(title: 'Flutter Advanced Examples'),
     );
   }
 }
@@ -41,10 +43,7 @@ class HomeState extends State<Home> {
     testDevices: <String>[],
   );
 
-  HomeState() {
-    FirebaseAdMob.instance
-        .initialize(appId: "ca-app-pub-6875218797287283~9683625580");
-  }
+  HomeState();
 
   @override
   Widget build(BuildContext context) {
@@ -57,56 +56,8 @@ class HomeState extends State<Home> {
         title: Text(widget.title),
       ),
       body: Container(
-          child: ListView(
-        children: [
-          ListTile(
-            title: new Text("Filtering List"),
-            subtitle: new Text("Apply different filters on a list of cars."),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Example1()),
-              );
-            },
-            trailing: Icon(Icons.arrow_right),
-          ),
-          ListTile(
-            title: new Text("Reading Json files"),
-            subtitle: new Text(
-                "Loading data from a json file inside the asset folder."),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Example2()),
-              );
-            },
-            trailing: Icon(Icons.arrow_right),
-          ),
-          ListTile(
-            title: new Text("Managing Favorites"),
-            subtitle: new Text(
-                "Mark your favorite meal and save it in the shared preferences."),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Example3()),
-              );
-            },
-            trailing: Icon(Icons.arrow_right),
-          ),
-          ListTile(
-            title: new Text("Managing inputs within modal / bottom sheet"),
-            subtitle: new Text("Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet."),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Example4()),
-              );
-            },
-            trailing: Icon(Icons.arrow_right),
-          )
-        ],
-      )),
+          child: ExampleList()
+      ),
     );
   }
 
@@ -115,17 +66,15 @@ class HomeState extends State<Home> {
     super.dispose();
   }
 
-
-  void loadAd() {
-    RewardedVideoAd.instance.load(adUnitId: RewardedVideoAd.testAdUnitId, targetingInfo: targetingInfo);
-  }
-
   @override
   void initState() {
     super.initState();
-    bool isFree = GlobalConfiguration().getBool("isFree");
-    if(isFree) {
-      loadAd();
+    bool displayAd = GlobalConfiguration().getBool("displayAd");
+    if(displayAd) {
+      String appId = GlobalConfiguration().getString("appId");
+      String adUnitId = GlobalConfiguration().getString("adUnitId");
+      FirebaseAdMob.instance.initialize(appId: appId);
+      RewardedVideoAd.instance.load(adUnitId: adUnitId, targetingInfo: targetingInfo);
       RewardedVideoAd.instance.listener = listener;
     }else{
       isloaded = true;
@@ -140,7 +89,6 @@ class HomeState extends State<Home> {
         isloaded = true;
         RewardedVideoAd.instance.show();
       });
-
     }else if(event == RewardedVideoAdEvent.failedToLoad){
       setState(() {
         isloaded = true;
