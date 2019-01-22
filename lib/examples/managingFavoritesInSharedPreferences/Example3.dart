@@ -1,25 +1,12 @@
+import 'package:advanced_flutter_example/DefaultAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Example3 extends StatefulWidget {
-  Example3(){
-   setUp();
-  }
+  Example3();
 
   final String title = "Managing Favorites";
-  final List<String> meals = new List();
-  final List<String> favs = new List();
-
-  void setUp() {
-    meals.add("Pizza");
-    meals.add("Spaghetti");
-    meals.add("Lasagne");
-    meals.add("Steak");
-    meals.add("French Fries");
-    meals.add("Mac & Cheese");
-    meals.add("Schnitzel");
-    meals.add("Brezel");
-  }
+  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/managingFavoritesInSharedPreferences";
 
   @override
   _Example3State createState() => _Example3State();
@@ -27,13 +14,17 @@ class Example3 extends StatefulWidget {
 
 class _Example3State extends State<Example3> {
 
+  final List<String> meals = new List();
+  final List<String> favs = new List();
+
   @override
   initState() {
     super.initState();
-    if(widget.favs.isEmpty){
+    setUp();
+    if(favs.isEmpty){
       SharedPreferences.getInstance().then((prefs){
         if(prefs.getStringList("favs") != null) {
-          widget.favs.addAll(prefs.getStringList("favs"));
+          favs.addAll(prefs.getStringList("favs"));
         }
         setState((){});
       });
@@ -43,16 +34,14 @@ class _Example3State extends State<Example3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: DefaultAppBar(widget.title,widget.exampleUrl),
       body: Container(
         child: ListView.builder(
             // Let the ListView know how many items it needs to build
-            itemCount: widget.meals.length,
+            itemCount: meals.length,
             // Provide a builder function. 
             itemBuilder: (context, index) {
-              String meal = widget.meals[index];
+              String meal = meals[index];
               return ListTile(
                 title: new Text(meal),
                 trailing: Icon(isFavorite(meal) ? Icons.favorite : Icons.favorite_border),
@@ -67,17 +56,28 @@ class _Example3State extends State<Example3> {
     );
   }
 
+  void setUp() {
+    meals.add("Pizza");
+    meals.add("Spaghetti");
+    meals.add("Lasagne");
+    meals.add("Steak");
+    meals.add("French Fries");
+    meals.add("Mac & Cheese");
+    meals.add("Schnitzel");
+    meals.add("Brezel");
+  }
+
   bool isFavorite(String meal){
-    return widget.favs.contains(meal);
+    return favs.contains(meal);
   }
 
   void addRemFavorite(String meal) async {
-    if(widget.favs.contains(meal)){
-      widget.favs.remove(meal);
+    if(favs.contains(meal)){
+      favs.remove(meal);
     }else{
-      widget.favs.add(meal);
+      favs.add(meal);
     }
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setStringList("favs", widget.favs);
+    prefs.setStringList("favs", favs);
   }
 }

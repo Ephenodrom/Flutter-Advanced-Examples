@@ -1,18 +1,17 @@
+import 'package:advanced_flutter_example/DefaultAppBar.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Example4 extends StatefulWidget {
   Example4();
 
   final String title = "Managing inputs within modal / bottom sheet";
+  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/managingInputsWithinModalBottomsheet";
 
   @override
   _Example4State createState() => _Example4State();
 }
 
 class _Example4State extends State<Example4> {
-
-  String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/managingInputsWithinModalBottomsheet";
 
   // Modal
   bool modalIsChecked = false;
@@ -27,16 +26,7 @@ class _Example4State extends State<Example4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
-          FlatButton(
-            child: Icon(Icons.info_outline, color: Colors.white),
-            onPressed: _launchURL
-          )
-
-        ],
-      ),
+      appBar: DefaultAppBar(widget.title,widget.exampleUrl),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -202,13 +192,5 @@ class _Example4State extends State<Example4> {
         ),
       ),
     );
-  }
-
-  _launchURL() async {
-    if (await canLaunch(exampleUrl)) {
-      await launch(exampleUrl);
-    } else {
-      throw 'Could not launch $exampleUrl';
-    }
   }
 }

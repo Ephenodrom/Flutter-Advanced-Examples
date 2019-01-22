@@ -1,3 +1,4 @@
+import 'package:advanced_flutter_example/DefaultAppBar.dart';
 import 'package:advanced_flutter_example/examples/readingJsonFile/Planet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -7,6 +8,8 @@ class Example2 extends StatefulWidget {
   Example2();
 
   final String title = "Reading Json files";
+  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/readingJsonFile";
+
 
   @override
   _Example2State createState() => _Example2State();
@@ -29,9 +32,7 @@ class _Example2State extends State<Example2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
+        appBar: DefaultAppBar(widget.title,widget.exampleUrl),
         body: ListView.builder(
             itemCount: planets.length,
             itemBuilder: (BuildContext context, index) {

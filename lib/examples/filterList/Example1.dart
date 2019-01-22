@@ -1,3 +1,4 @@
+import 'package:advanced_flutter_example/DefaultAppBar.dart';
 import 'package:advanced_flutter_example/examples/filterList/Car.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,7 @@ class Example1 extends StatefulWidget {
   Example1();
 
   final String title = "Filtering List";
+  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/filterList";
 
   @override
   _Example1State createState() => _Example1State();
@@ -32,9 +34,7 @@ class _Example1State extends State<Example1> {
   Widget build(BuildContext context) {
     filterCars();
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
+        appBar: DefaultAppBar(widget.title,widget.exampleUrl),
         body: Container(
           margin: EdgeInsets.only(top: 10),
           child: Column(children: [
@@ -165,4 +165,5 @@ class _Example1State extends State<Example1> {
       currentList = tmp;
     }
   }
+
 }
