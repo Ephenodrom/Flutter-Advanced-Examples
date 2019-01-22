@@ -4,7 +4,8 @@ An advanced flutter example project.
 ## Table of Contents
 1. [Why](#why)
 2. [Install](#install)  
-3. [Examples](#examples)
+3. [Structure](#structure)
+4. [Examples](#examples)
    * [Filtering list](#filtering-list)
    * [Reading json file](#reading-json-file)
    * [Managing favorites in shared preferences](#managing-favorites-in-shared-preferences)
@@ -12,9 +13,9 @@ An advanced flutter example project.
    * [NoSQL integration](#Nosql-integration)
    * [Global Loading Animation](#global-loading-animation)
    * [Admob integration](#admob-integration)
-4. [Changelog](#changelog)
-5. [Support](#support)
-6. [Copyright and license](#copyright-and-license)
+5. [Changelog](#changelog)
+6. [Support](#support)
+7. [Copyright and license](#copyright-and-license)
 
 ## Why 
 There are many example projects for flutter, but as soon as I digged deeper in developing flutter projects,
