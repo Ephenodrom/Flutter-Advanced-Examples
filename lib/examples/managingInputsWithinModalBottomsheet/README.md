@@ -53,10 +53,6 @@ Here comes the most important part. We don't call the **setState((){ ... })** me
 **StateSetter** called **state** from the **StatefulBuilder**. 
 Use **state((){ ... })** to update the ui of the bottom sheet.
 
-_Important information : state is just the name of the StateSetter variable, it is possible to use 
-another name and therefore change the method._
-
-
 ```dart
 onChanged: (value) {
   state(() {
@@ -64,3 +60,6 @@ onChanged: (value) {
   });
 }
 ```
+
+_Additional information : **state** is just the name of the StateSetter variable, it is possible to use 
+another name and therefore change the method._
