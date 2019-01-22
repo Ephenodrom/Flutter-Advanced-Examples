@@ -39,9 +39,81 @@ class _Example4State extends State<Example4> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return StatefulBuilder(
+                        builder: (BuildContext context, StateSetter state) {
+                          return SimpleDialog(
+                            children: <Widget>[
+                              Center(child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("These inputs wouldn't work without StatefulBuilder!"),
+                              )),
+                              CheckboxListTile(
+                                value: modalIsChecked,
+                                title: Text("modalIsChecked"),
+                                onChanged: (value) {
+                                  state(() {
+                                    modalIsChecked = value;
+                                  });
+                                },
+                              ),
+                              SwitchListTile(
+                                value: modalIsSwitched,
+                                title: Text("modalIsSwitched"),
+                                onChanged: (value) {
+                                  state(() {
+                                    modalIsSwitched = value;
+                                  });
+                                },
+                              ),
+                              new Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  new Radio(
+                                    value: 0,
+                                    groupValue: modalRadioValue,
+                                    onChanged: (value) {
+                                      state(() {
+                                        modalRadioValue = value;
+                                      });
+                                    },
+                                  ),
+                                  new Text('Pizza',),
+                                  new Radio(
+                                    value: 1,
+                                    groupValue: modalRadioValue,
+                                    onChanged: (value) {
+                                      state(() {
+                                        modalRadioValue = value;
+                                      });
+                                    },
+                                  ),
+                                  new Text('Spaghetti'),
+                                  new Radio(
+                                    value: 2,
+                                    groupValue: modalRadioValue,
+                                    onChanged: (value) {
+                                      state(() {
+                                        modalRadioValue = value;
+                                      });
+                                    },
+                                  ),
+                                  new Text('Burger'),
+                                ],
+                              ),
+                            ],
+                          );
+                        }
+                      );
+                    }
+                );
+              },
               child: Text("Show modal"),
             ),
             RaisedButton(
@@ -53,7 +125,12 @@ class _Example4State extends State<Example4> {
                           builder: (BuildContext context, StateSetter state) {
                         return Container(
                           child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
+                              Center(child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("These inputs wouldn't work without StatefulBuilder!"),
+                              )),
                               CheckboxListTile(
                                 value: bottomIsChecked,
                                 title: Text("bottomIsChecked"),

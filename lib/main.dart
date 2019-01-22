@@ -5,8 +5,7 @@ import 'package:advanced_flutter_example/examples/managingInputsWithinModalBotto
 import 'package:advanced_flutter_example/examples/readingJsonFile/Example2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_admob/firebase_admob.dart';
-
-void main() => runApp(MyApp());
+import 'package:global_configuration/global_configuration.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -124,8 +123,13 @@ class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    loadAd();
-    RewardedVideoAd.instance.listener = listener;
+    bool isFree = GlobalConfiguration().getBool("isFree");
+    if(isFree) {
+      loadAd();
+      RewardedVideoAd.instance.listener = listener;
+    }else{
+      isloaded = true;
+    }
   }
 
   void listener(RewardedVideoAdEvent event, {int rewardAmount, String rewardType}){

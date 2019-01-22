@@ -23,8 +23,15 @@ I realised, these examples have the following problems :
 * Not practical in real life
 * Just scratching the surface of flutter
 
+Therefore I created this examples for each problem I had while I developed an app with flutter.
+
+## Structure
+Every example has it's own folder containing a **README.md** file and other files needed for that example. 
+The **README.md** file contains more detailed explanations of this example.
+
 ## Install
 You can find the corresponding app for this examples in the [play store](https://play.google.com/store/apps/details?id=com.feuerberg_software.advancedflutterexample).
+It shows every example in action and has a link to the corresponding files within this repository.
 
 ## Examples
 
@@ -56,6 +63,9 @@ Coming soon ...
 Coming soon ...
 
 ### Admob Integration
+Coming soon ...
+
+### Shopping Card
 Coming soon ...
 
 ## Changelog

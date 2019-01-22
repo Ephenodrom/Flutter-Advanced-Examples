@@ -24,6 +24,7 @@ dependencies:
   firebase_admob: 0.6.1
   json_serializable: ^2.0.1
   url_launcher: ^4.0.3
+  global_configuration: ^0.1.4
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +48,7 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
   - assets/json/
+  - assets/cfg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
