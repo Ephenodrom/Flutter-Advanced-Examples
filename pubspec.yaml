@@ -25,6 +25,7 @@ dependencies:
   json_serializable: ^2.0.1
   url_launcher: ^4.0.3
   global_configuration: ^0.1.4
+  rxdart: ^0.20.0
 
 dev_dependencies:
   flutter_test:

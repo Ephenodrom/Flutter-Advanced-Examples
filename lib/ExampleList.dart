@@ -2,10 +2,10 @@ import 'package:advanced_flutter_example/examples/filterList/Example1.dart';
 import 'package:advanced_flutter_example/examples/managingFavoritesInSharedPreferences/Example3.dart';
 import 'package:advanced_flutter_example/examples/managingInputsWithinModalBottomsheet/Example4.dart';
 import 'package:advanced_flutter_example/examples/readingJsonFile/Example2.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/Example5.dart';
 import 'package:flutter/material.dart';
 
 class ExampleList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -47,11 +47,23 @@ class ExampleList extends StatelessWidget {
         ),
         ListTile(
           title: new Text("Managing inputs within modal / bottom sheet"),
-          subtitle: new Text("Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet."),
+          subtitle: new Text(
+              "Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet."),
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Example4()),
+            );
+          },
+          trailing: Icon(Icons.arrow_right),
+        ),
+        ListTile(
+          title: new Text("Shopping Cart"),
+          subtitle: new Text("Managing a shopping cart with BLOC logic"),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Example5()),
             );
           },
           trailing: Icon(Icons.arrow_right),

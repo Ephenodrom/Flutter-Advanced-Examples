@@ -10,9 +10,7 @@ An advanced flutter example project.
    * [Reading json file](#reading-json-file)
    * [Managing favorites in shared preferences](#managing-favorites-in-shared-preferences)
    * [Managing inputs within a modal or bottom sheet](#managing-inputs-within-a-modal-or-bottom-sheet)
-   * [NoSQL integration](#Nosql-integration)
-   * [Global Loading Animation](#global-loading-animation)
-   * [Admob integration](#admob-integration)
+   * [Shopping Cart](#shopping-cart)
 5. [Changelog](#changelog)
 6. [Support](#support)
 7. [Copyright and license](#copyright-and-license)
@@ -57,17 +55,10 @@ Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet.
 
 View [Example4.dart](lib/examples/managingInputsWithinModalBottomsheet/Example4.dart)
 
-### NoSQL Integration
+### Shopping Cart
 Coming soon ...
 
-### Global Loading Animation
-Coming soon ...
-
-### Admob Integration
-Coming soon ...
-
-### Shopping Card
-Coming soon ...
+View [Example5.dart](lib/examples/shoppingCart/Example5.dart)
 
 ## Changelog
 For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
