@@ -37,6 +37,9 @@ class _ShoppingCartState extends State<ShoppingCartScreen> {
                 return Center(child: Text("Shopping cart is empty"));
               } else {
                 cart = snapshot.data;
+                if (cart.products.length == 0) {
+                  return Center(child: Text("Shopping cart is empty"));
+                }
                 return Container(
                     padding: EdgeInsets.all(16),
                     child: Column(children: [

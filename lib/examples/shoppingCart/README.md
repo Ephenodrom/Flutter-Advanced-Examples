@@ -2,9 +2,24 @@
 
 ## Description
 
-Managing a shopping cart system with BLOC logic.
+Managing a shopping cart system with BLOC logic using the rxdart package.
 
 ## Structure
+
+First of all activate the global BlocProvider in the [main](../../main.dart) file.
+
+```dart
+@override
+Widget build(BuildContext context) {
+    return BlocProvider<GlobalBloc>(
+        bloc: GlobalBloc(),
+        child: MaterialApp(
+          title: 'Flutter Advanced Example',
+          home: Home(title: 'Flutter Advanced Examples'),
+        )
+    );
+}
+```
 
 The example has two widgets that represents the shopping cart :
 

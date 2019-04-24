@@ -57,5 +57,8 @@ class ShoppingCartBloc implements BlocBase {
   }
 
   @override
-  void dispose() {}
+  void dispose() {
+    itemAdditionController.close();
+    itemSubtractionController.close();
+  }
 }
