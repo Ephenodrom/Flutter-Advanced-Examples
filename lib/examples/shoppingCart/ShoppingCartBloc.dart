@@ -1,25 +1,26 @@
 import 'dart:async';
 
-import 'package:advanced_flutter_example/examples/shoppingCart/BlockProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/Product.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCart.dart';
 import 'package:logging/logging.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ShoppingCartBloc implements BlocBase {
   static const String TAG = "ShoppingCartBloc";
 
-  List<String> products = [];
+  ShoppingCart cart = ShoppingCart();
 
   /// Sinks
-  Sink<String> get addition => itemAdditionController.sink;
-  final itemAdditionController = StreamController<String>();
+  Sink<Product> get addition => itemAdditionController.sink;
+  final itemAdditionController = StreamController<Product>();
 
-  /// Sinks
-  Sink<String> get substraction => itemSubtractionController.sink;
-  final itemSubtractionController = StreamController<String>();
+  Sink<Product> get substraction => itemSubtractionController.sink;
+  final itemSubtractionController = StreamController<Product>();
 
   /// Streams
-  Stream<List<String>> get items => _items.stream;
-  final _items = BehaviorSubject<List<String>>();
+  Stream<ShoppingCart> get cartStream => _cart.stream;
+  final _cart = BehaviorSubject<ShoppingCart>();
 
   ShoppingCartBloc() {
     itemAdditionController.stream.listen(handleItemAdd);
@@ -27,21 +28,32 @@ class ShoppingCartBloc implements BlocBase {
   }
 
   ///
-  /// Logic for item added to shopping cart.
+  /// Logic for product added to shopping cart.
   ///
-  void handleItemAdd(String item) {
-    Logger(TAG).info("Add item to the shopping cart");
-
+  void handleItemAdd(Product item) {
+    Logger(TAG).info("Add product to the shopping cart");
+    cart.addProduct(item);
+    cart.calculate();
+    _cart.add(cart);
     return;
   }
 
   ///
-  /// Logic for item removed from shopping cart.
+  /// Logic for product removed from shopping cart.
   ///
-  void handleItemRem(String item) {
-    Logger(TAG).info("Remove item from the shopping cart");
-
+  void handleItemRem(Product item) {
+    Logger(TAG).info("Remove product from the shopping cart");
+    cart.remProduct(item);
+    cart.calculate();
+    _cart.add(cart);
     return;
+  }
+
+  ///
+  /// Clears the shopping cart
+  ///
+  void clearCart() {
+    cart.clear();
   }
 
   @override

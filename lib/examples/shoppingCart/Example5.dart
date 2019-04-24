@@ -1,5 +1,8 @@
 import 'package:advanced_flutter_example/DefaultAppBar.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/GlobalBloc.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/Product.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCartAppBarIcon.dart';
 import 'package:flutter/material.dart';
 
 class Example5 extends StatefulWidget {
@@ -18,8 +21,14 @@ class _Example5State extends State<Example5> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> actions = [];
+    actions.add(ShoppingCartAppBarIcon());
     return Scaffold(
-        appBar: DefaultAppBar(widget.title, widget.exampleUrl),
+        appBar: DefaultAppBar(
+          widget.title,
+          widget.exampleUrl,
+          customActions: actions,
+        ),
         body: ListView.builder(
             itemCount: productList.length,
             itemBuilder: (BuildContext context, index) {
@@ -28,6 +37,12 @@ class _Example5State extends State<Example5> {
                 subtitle: Text(
                     productList.elementAt(index).priceNet.toString() + " €"),
                 trailing: Icon(Icons.add_shopping_cart),
+                onTap: () {
+                  BlocProvider.of<GlobalBloc>(context)
+                      .shoppingCartBloc
+                      .addition
+                      .add(productList.elementAt(index));
+                },
               );
             }));
   }

@@ -1,4 +1,4 @@
-import 'package:advanced_flutter_example/examples/shoppingCart/BlockProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCartBloc.dart';
 
 class GlobalBloc implements BlocBase {

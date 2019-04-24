@@ -1,5 +1,6 @@
-import 'package:advanced_flutter_example/examples/shoppingCart/BlockProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/GlobalBloc.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCart.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCartScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,13 +16,14 @@ class ShoppingCartAppBarIconState extends State<ShoppingCartAppBarIcon> {
   Widget build(BuildContext context) {
     return FlatButton(
       child: StreamBuilder(
-        stream: BlocProvider.of<GlobalBloc>(context).shoppingCartBloc.items,
-        initialData: 0,
+        stream:
+            BlocProvider.of<GlobalBloc>(context).shoppingCartBloc.cartStream,
+        initialData: ShoppingCart(),
         builder: (context, snapshot) {
           int count = 0;
           if (snapshot.hasData) {
-            if (snapshot.data is List<String>) {
-              count = snapshot.data.length;
+            if (snapshot.data is ShoppingCart) {
+              count = snapshot.data.products.length;
             }
           }
           return Chip(

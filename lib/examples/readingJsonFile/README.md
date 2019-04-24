@@ -1,7 +1,11 @@
-# Description
+# Reading Json File
+
+## Description
+
 Reading a json file from the asset folder and displaying it's content in the ui.
 
-# Structure
+## Structure
+
 We have the empty list of planets at the beginning.
 
 ```dart
@@ -11,6 +15,7 @@ List<Planet> planets = [];
 We load the data from the json file in the **initState()** method. When we receive the lists of planets,
 we update the screen by calling the **setState()** method. We simple build the list of planets with
 the help of a **ListView** builder in the **build()** method.
+
 ```dart
 loadPlanetsFromAsset().then((planets) {
   setState(() {
@@ -18,6 +23,7 @@ loadPlanetsFromAsset().then((planets) {
   });
 });
 ```
+
 We use the rootBundle to load the json as a string, then converting it to our model.
 
 ```dart

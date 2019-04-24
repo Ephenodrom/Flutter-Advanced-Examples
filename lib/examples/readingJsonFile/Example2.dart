@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:advanced_flutter_example/DefaultAppBar.dart';
 import 'package:advanced_flutter_example/examples/readingJsonFile/Planet.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,8 @@ class Example2 extends StatefulWidget {
   Example2();
 
   final String title = "Reading Json files";
-  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/readingJsonFile";
-
+  final String exampleUrl =
+      "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/readingJsonFile";
 
   @override
   _Example2State createState() => _Example2State();
@@ -21,26 +23,27 @@ class _Example2State extends State<Example2> {
   @override
   void initState() {
     super.initState();
-      loadPlanetsFromAsset().then((planets) {
-        setState(() {
-          this.planets.addAll(planets);
-        });
+    loadPlanetsFromAsset().then((planets) {
+      setState(() {
+        this.planets.addAll(planets);
       });
-
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: DefaultAppBar(widget.title,widget.exampleUrl),
+        appBar: DefaultAppBar(widget.title, widget.exampleUrl),
         body: ListView.builder(
             itemCount: planets.length,
             itemBuilder: (BuildContext context, index) {
-          return ListTile(
-            title: Text(planets.elementAt(index).name),
-            subtitle: Text("Distance from sun : "+ planets.elementAt(index).distance + " km"),
-          );
-        }));
+              return ListTile(
+                title: Text(planets.elementAt(index).name),
+                subtitle: Text("Distance from sun : " +
+                    planets.elementAt(index).distance +
+                    " km"),
+              );
+            }));
   }
 
   Future<List<Planet>> loadPlanetsFromAsset() async {
