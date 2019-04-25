@@ -1,77 +1,86 @@
 # Advanced Flutter Example
+
 An advanced flutter example project.
 
 ## Table of Contents
-1. [Why](#why)
-2. [Install](#install)  
-3. [Structure](#structure)
-4. [Examples](#examples)
+
+1. [Install](#install)  
+2. [Structure](#structure)
+3. [Examples](#examples)
    * [Filtering list](#filtering-list)
    * [Reading json file](#reading-json-file)
    * [Managing favorites in shared preferences](#managing-favorites-in-shared-preferences)
    * [Managing inputs within a modal or bottom sheet](#managing-inputs-within-a-modal-or-bottom-sheet)
    * [Shopping Cart](#shopping-cart)
-5. [Changelog](#changelog)
-6. [Support](#support)
-7. [Copyright and license](#copyright-and-license)
-
-## Why 
-There are many example projects for flutter, but as soon as I digged deeper in developing flutter projects,
-I realised, these examples have the following problems :
-* Too simple
-* Not practical in real life
-* Just scratching the surface of flutter
-
-Therefore I created this examples for each problem I had while I developed an app with flutter.
+   * [Global Message](#global-message)
+4. [Changelog](#changelog)
+5. [Support](#support)
+6. [Copyright and license](#copyright-and-license)
 
 ## Structure
-Every example has it's own folder containing a **README.md** file and other files needed for that example. 
-The **README.md** file contains more detailed explanations of this example.
+
+Every example has it's own folder containing a **README.md** file and other files needed for that example.
+Thse **README.md** files contain more detailed explanations of the examples.
 
 ## Install
+
 You can find the corresponding app for this examples in the [play store](https://play.google.com/store/apps/details?id=com.feuerberg_software.advancedflutterexample).
 It shows every example in action and has a link to the corresponding files within this repository.
 
 ## Examples
 
 ### Filtering list
+
 Sorting a list of objects by different filters. The example contains a list of cars that can be filtered in different ways.
 
 View [Example1.dart](lib/examples/filterList/Example1.dart)
 
-### Reading json file 
+### Reading json file
+
 Reading a json file from the asset folder and displaying it's content in the ui.
 
 View [Example2.dart](lib/examples/readingJsonFile/Example2.dart)
 
 ### Managing favorites in shared preferences
+
 Mark items from a list as your favorite and save the favorites in the shared preferences. The example contains a list of meals.
 Each meal can be marked as favorite.
 
 View [Example3.dart](lib/examples/managingFavoritesInSharedPreferences/Example3.dart)
 
 ### Managing inputs within a modal or bottom sheet
+
 Outsourcing checkboxes, radiobuttons and switches to a modal or a bottomsheet.
 
 View [Example4.dart](lib/examples/managingInputsWithinModalBottomsheet/Example4.dart)
 
 ### Shopping Cart
-Coming soon ...
+
+A simple shopping cart with the possibility to add an remove items. The example consist of an app bar icon which displays the amount of items in the cart, a product list screen and the shopping cart screen, displaying each item of the cart and the calculated costs of the cart. This example uses BLOC logic.
 
 View [Example5.dart](lib/examples/shoppingCart/Example5.dart)
 
+### Global Message
+
+Display messages that were created anywhere in the app. Simply push messge to the MessageBloc and the messagewrapper will display them. This example uses BLOC logic.
+
+View [Example6.dart](lib/examples/globalMessage/Example6.dart)
+
 ## Changelog
+
 For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
 
 ## Support
-You like this repository or even use it in one of your projects? Feel free to donate a cup of 
-coffee! 
-Flattr : https://flattr.com/@Ephenodrom
+
+You like this repository or even use it in one of your projects? Feel free to donate a cup of
+coffee!
+Flattr : <https://flattr.com/@Ephenodrom>
 
 ## Copyright and license
+
 MIT License
 
-Copyright (c) 2018 Ephenodrom
+Copyright (c) 2019 Ephenodrom
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

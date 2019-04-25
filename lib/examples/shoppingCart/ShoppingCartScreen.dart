@@ -1,6 +1,7 @@
 import 'package:advanced_flutter_example/DefaultAppBar.dart';
-import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
-import 'package:advanced_flutter_example/examples/shoppingCart/GlobalBloc.dart';
+import 'package:advanced_flutter_example/basic/BlocProvider.dart';
+import 'package:advanced_flutter_example/examples/shoppingCart/Example5.dart';
+import 'package:advanced_flutter_example/basic/GlobalBloc.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/Product.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCart.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,16 @@ class _ShoppingCartState extends State<ShoppingCartScreen> {
                         child: RaisedButton(
                           child: Text("Order now!"),
                           onPressed: () {
-                            print("Ordered!");
+                            BlocProvider.of<GlobalBloc>(context)
+                                .shoppingCartBloc
+                                .clearCart();
+                            Scaffold.of(context).showSnackBar(
+                                SnackBar(content: Text("Order completed!")));
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Example5()),
+                            );
                           },
                         ),
                       )

@@ -1,4 +1,5 @@
 import 'package:advanced_flutter_example/examples/filterList/Example1.dart';
+import 'package:advanced_flutter_example/examples/globalMessage/Example6.dart';
 import 'package:advanced_flutter_example/examples/managingFavoritesInSharedPreferences/Example3.dart';
 import 'package:advanced_flutter_example/examples/managingInputsWithinModalBottomsheet/Example4.dart';
 import 'package:advanced_flutter_example/examples/readingJsonFile/Example2.dart';
@@ -64,6 +65,18 @@ class ExampleList extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Example5()),
+            );
+          },
+          trailing: Icon(Icons.arrow_right),
+        ),
+        ListTile(
+          title: new Text("Global Message"),
+          subtitle: new Text(
+              "Displaying messages from anywhere in the app with BLOC logic"),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Example6()),
             );
           },
           trailing: Icon(Icons.arrow_right),

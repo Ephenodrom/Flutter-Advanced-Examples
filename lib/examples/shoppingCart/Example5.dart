@@ -1,6 +1,6 @@
 import 'package:advanced_flutter_example/DefaultAppBar.dart';
-import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
-import 'package:advanced_flutter_example/examples/shoppingCart/GlobalBloc.dart';
+import 'package:advanced_flutter_example/basic/BlocProvider.dart';
+import 'package:advanced_flutter_example/basic/GlobalBloc.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/Product.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCartAppBarIcon.dart';
 import 'package:flutter/material.dart';

@@ -6,7 +6,7 @@ Managing a shopping cart system with BLOC logic using the rxdart package.
 
 ## Structure
 
-First of all activate the global BlocProvider in the [main](../../main.dart) file.
+First of all activate the [GlobalBloc](../../basic/GlobalBloc.dart) with [BlocProvider](../../basic/BlocProvider.dart) in the [main](../../main.dart) file.
 
 ```dart
 @override

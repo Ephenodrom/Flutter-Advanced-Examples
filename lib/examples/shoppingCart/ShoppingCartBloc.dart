@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
+import 'package:advanced_flutter_example/basic/BlocProvider.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/Product.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCart.dart';
 import 'package:logging/logging.dart';

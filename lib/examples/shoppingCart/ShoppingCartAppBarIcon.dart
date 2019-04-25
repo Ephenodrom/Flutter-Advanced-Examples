@@ -1,5 +1,5 @@
-import 'package:advanced_flutter_example/examples/shoppingCart/BlocProvider.dart';
-import 'package:advanced_flutter_example/examples/shoppingCart/GlobalBloc.dart';
+import 'package:advanced_flutter_example/basic/BlocProvider.dart';
+import 'package:advanced_flutter_example/basic/GlobalBloc.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCart.dart';
 import 'package:advanced_flutter_example/examples/shoppingCart/ShoppingCartScreen.dart';
 import 'package:flutter/material.dart';
