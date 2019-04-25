@@ -66,22 +66,25 @@ class _ShoppingCartState extends State<ShoppingCartScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: RaisedButton(
-                          child: Text("Order now!"),
-                          onPressed: () {
-                            BlocProvider.of<GlobalBloc>(context)
-                                .shoppingCartBloc
-                                .clearCart();
-                            Scaffold.of(context).showSnackBar(
-                                SnackBar(content: Text("Order completed!")));
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Example5()),
-                            );
-                          },
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 50.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: RaisedButton(
+                            child: Text("Order now!"),
+                            onPressed: () {
+                              BlocProvider.of<GlobalBloc>(context)
+                                  .shoppingCartBloc
+                                  .clearCart();
+                              Scaffold.of(context).showSnackBar(
+                                  SnackBar(content: Text("Order completed!")));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Example5()),
+                              );
+                            },
+                          ),
                         ),
                       )
                     ]));

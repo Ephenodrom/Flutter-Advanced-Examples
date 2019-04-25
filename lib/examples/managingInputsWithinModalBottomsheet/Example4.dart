@@ -5,14 +5,14 @@ class Example4 extends StatefulWidget {
   Example4();
 
   final String title = "Managing inputs within modal / bottom sheet";
-  final String exampleUrl = "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/managingInputsWithinModalBottomsheet";
+  final String exampleUrl =
+      "https://github.com/Ephenodrom/FlutterAdvancedExamples/tree/master/lib/examples/managingInputsWithinModalBottomsheet";
 
   @override
   _Example4State createState() => _Example4State();
 }
 
 class _Example4State extends State<Example4> {
-
   // Modal
   bool modalIsChecked = false;
   bool modalIsSwitched = false;
@@ -26,7 +26,7 @@ class _Example4State extends State<Example4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(widget.title,widget.exampleUrl),
+      appBar: DefaultAppBar(widget.title, widget.exampleUrl),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,72 +37,74 @@ class _Example4State extends State<Example4> {
                     context: context,
                     builder: (BuildContext context) {
                       return StatefulBuilder(
-                        builder: (BuildContext context, StateSetter state) {
-                          return SimpleDialog(
-                            children: <Widget>[
-                              Center(child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text("These inputs wouldn't work without StatefulBuilder!"),
-                              )),
-                              CheckboxListTile(
-                                value: modalIsChecked,
-                                title: Text("modalIsChecked"),
-                                onChanged: (value) {
-                                  state(() {
-                                    modalIsChecked = value;
-                                  });
-                                },
-                              ),
-                              SwitchListTile(
-                                value: modalIsSwitched,
-                                title: Text("modalIsSwitched"),
-                                onChanged: (value) {
-                                  state(() {
-                                    modalIsSwitched = value;
-                                  });
-                                },
-                              ),
-                              new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  new Radio(
-                                    value: 0,
-                                    groupValue: modalRadioValue,
-                                    onChanged: (value) {
-                                      state(() {
-                                        modalRadioValue = value;
-                                      });
-                                    },
-                                  ),
-                                  new Text('Pizza',),
-                                  new Radio(
-                                    value: 1,
-                                    groupValue: modalRadioValue,
-                                    onChanged: (value) {
-                                      state(() {
-                                        modalRadioValue = value;
-                                      });
-                                    },
-                                  ),
-                                  new Text('Spaghetti'),
-                                  new Radio(
-                                    value: 2,
-                                    groupValue: modalRadioValue,
-                                    onChanged: (value) {
-                                      state(() {
-                                        modalRadioValue = value;
-                                      });
-                                    },
-                                  ),
-                                  new Text('Burger'),
-                                ],
-                              ),
-                            ],
-                          );
-                        }
-                      );
-                    }
-                );
+                          builder: (BuildContext context, StateSetter state) {
+                        return SimpleDialog(
+                          children: <Widget>[
+                            Center(
+                                child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  "These inputs wouldn't work without StatefulBuilder!"),
+                            )),
+                            CheckboxListTile(
+                              value: modalIsChecked,
+                              title: Text("modalIsChecked"),
+                              onChanged: (value) {
+                                state(() {
+                                  modalIsChecked = value;
+                                });
+                              },
+                            ),
+                            SwitchListTile(
+                              value: modalIsSwitched,
+                              title: Text("modalIsSwitched"),
+                              onChanged: (value) {
+                                state(() {
+                                  modalIsSwitched = value;
+                                });
+                              },
+                            ),
+                            new Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                new Radio(
+                                  value: 0,
+                                  groupValue: modalRadioValue,
+                                  onChanged: (value) {
+                                    state(() {
+                                      modalRadioValue = value;
+                                    });
+                                  },
+                                ),
+                                new Text(
+                                  'Pizza',
+                                ),
+                                new Radio(
+                                  value: 1,
+                                  groupValue: modalRadioValue,
+                                  onChanged: (value) {
+                                    state(() {
+                                      modalRadioValue = value;
+                                    });
+                                  },
+                                ),
+                                new Text('Spaghetti'),
+                                new Radio(
+                                  value: 2,
+                                  groupValue: modalRadioValue,
+                                  onChanged: (value) {
+                                    state(() {
+                                      modalRadioValue = value;
+                                    });
+                                  },
+                                ),
+                                new Text('Burger'),
+                              ],
+                            ),
+                          ],
+                        );
+                      });
+                    });
               },
               child: Text("Show modal"),
             ),
@@ -114,12 +116,15 @@ class _Example4State extends State<Example4> {
                       return StatefulBuilder(
                           builder: (BuildContext context, StateSetter state) {
                         return Container(
+                          padding: EdgeInsets.only(bottom: 50),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Center(child: Padding(
+                              Center(
+                                  child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text("These inputs wouldn't work without StatefulBuilder!"),
+                                child: Text(
+                                    "These inputs wouldn't work without StatefulBuilder!"),
                               )),
                               CheckboxListTile(
                                 value: bottomIsChecked,

@@ -1,4 +1,4 @@
-name: advanced_flutter_example
+name: Flutter Advanced Examples
 description: A advanced flutter example project.
 
 # The following defines the version and build number for your application.
@@ -30,6 +30,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.0"
+  
+flutter_icons:
+  android: "launcher_icon" 
+  ios: true
+  image_path: "assets/logo_fae.png"
 
 
 # For information on the generic Dart part of this file, see the
