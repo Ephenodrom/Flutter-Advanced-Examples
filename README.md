@@ -24,7 +24,7 @@ Thse **README.md** files contain more detailed explanations of the examples.
 
 ## Install
 
-You can find the corresponding app for this examples in the [play store](https://play.google.com/store/apps/details?id=com.feuerberg_software.advancedflutterexample).
+You can find the corresponding app for this examples in the [play store](https://play.google.com/store/apps/details?id=de.feuerbergsoftware.advancedflutterexample).
 It shows every example in action and has a link to the corresponding files within this repository.
 
 ## Examples

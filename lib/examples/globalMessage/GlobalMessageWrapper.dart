@@ -45,8 +45,12 @@ class _GlobalMessageWrapperState extends State<GlobalMessageWrapper> {
         break;
       default:
     }
-    SnackBar bar =
-        SnackBar(content: Text(message.text), backgroundColor: color);
+    SnackBar bar = SnackBar(
+        content: Padding(
+          padding: const EdgeInsets.only(bottom: 50.0),
+          child: Text(message.text),
+        ),
+        backgroundColor: color);
 
     Scaffold.of(context)
       ..hideCurrentSnackBar()

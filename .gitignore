@@ -1,6 +1,8 @@
 # Custom
 assets/cfg
 main_live.dart
+key.properties
+android/app/build.gradle
 
 # Miscellaneous
 *.class
