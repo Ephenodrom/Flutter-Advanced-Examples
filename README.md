@@ -1,4 +1,4 @@
-# Advanced Flutter Example
+# Flutter Advanced Examples
 
 An advanced flutter example project.
 
